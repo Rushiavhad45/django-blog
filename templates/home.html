@@ -40,10 +40,15 @@
             align-items: center;
         }
 
+        .nav-left h1 {
+            margin-right: 30px;
+        }
+
         .nav-left nav a {
             color: white;
             margin-left: 20px;
             text-decoration: none;
+            font-size: 16px;
         }
 
         .nav-left nav a:hover {
@@ -57,11 +62,13 @@
             padding: 6px 12px;
             border-radius: 5px;
             font-size: 14px;
+            transition: all 0.3s ease;
         }
 
         .login-btn {
             border: 1px solid #0d6efd;
             color: #0d6efd;
+            background: transparent;
         }
 
         .login-btn:hover {
@@ -72,6 +79,7 @@
         .register-btn {
             background: #0d6efd;
             color: white;
+            border: 1px solid #0d6efd;
         }
 
         .register-btn:hover {
@@ -90,10 +98,15 @@
             font-size: 2.5rem;
         }
 
+        .hero p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
         /* Posts */
         .posts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
             gap: 25px;
             margin: 50px auto;
         }
@@ -122,6 +135,7 @@
 
         .card h3 {
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .card p {
@@ -137,6 +151,7 @@
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s;
         }
 
         .card button:hover {
@@ -149,6 +164,7 @@
             color: white;
             text-align: center;
             padding: 20px;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -162,7 +178,7 @@
             <div class="nav-left">
                 <h1>MyBlog</h1>
                 <nav>
-                    <a href="#">Home</a>
+                    <a href="/">Home</a>
                     <a href="#">Articles</a>
                     <a href="#">About</a>
                     <a href="#">Contact</a>
@@ -170,24 +186,28 @@
             </div>
 
             <div class="nav-right">
-                <a href="#" class="login-btn">Login</a>
-                <a href="#" class="register-btn">Register</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout/" class="login-btn">Logout</a>
+                {% else %}
+                    <a href="/login/" class="login-btn">Login</a>
+                    <a href="/register/" class="register-btn">Register</a>
+                {% endif %}
             </div>
 
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero">
         <h2>Welcome to My Blog</h2>
         <p>Explore tech, travel, and lifestyle stories</p>
     </section>
 
-    <!-- Posts -->
+    <!-- Blog Posts -->
     <section class="posts container">
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Web Development">
             <div class="card-content">
                 <h3>Getting Started with Web Development</h3>
                 <p>Learn the basics of HTML, CSS, and JavaScript to build your first website.</p>
@@ -196,7 +216,7 @@
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Travel">
             <div class="card-content">
                 <h3>Top Travel Destinations 2026</h3>
                 <p>Discover the most beautiful places to visit this year.</p>
@@ -205,7 +225,7 @@
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
+            <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f" alt="AI">
             <div class="card-content">
                 <h3>AI in Everyday Life</h3>
                 <p>How artificial intelligence is shaping our daily experiences.</p>
