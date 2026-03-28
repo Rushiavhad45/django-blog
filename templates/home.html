@@ -35,14 +35,47 @@
             align-items: center;
         }
 
-        .navbar nav a {
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left nav a {
             color: white;
             margin-left: 20px;
             text-decoration: none;
         }
 
-        .navbar nav a:hover {
+        .nav-left nav a:hover {
             color: #0d6efd;
+        }
+
+        /* Buttons */
+        .nav-right a {
+            margin-left: 10px;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-btn {
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
+        }
+
+        .login-btn:hover {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .register-btn {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .register-btn:hover {
+            background: #0b5ed7;
         }
 
         /* Hero */
@@ -125,13 +158,22 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="container">
-            <h1>MyBlog</h1>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">Articles</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </nav>
+
+            <div class="nav-left">
+                <h1>MyBlog</h1>
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">Articles</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
+
+            <div class="nav-right">
+                <a href="#" class="login-btn">Login</a>
+                <a href="#" class="register-btn">Register</a>
+            </div>
+
         </div>
     </header>
 
@@ -157,7 +199,7 @@
             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
             <div class="card-content">
                 <h3>Top Travel Destinations 2026</h3>
-                <p>Discover the most beautiful places to visit this year around the world.</p>
+                <p>Discover the most beautiful places to visit this year.</p>
                 <button>Read More</button>
             </div>
         </div>
@@ -166,7 +208,7 @@
             <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
             <div class="card-content">
                 <h3>AI in Everyday Life</h3>
-                <p>How artificial intelligence is shaping our future and daily experiences.</p>
+                <p>How artificial intelligence is shaping our daily experiences.</p>
                 <button>Read More</button>
             </div>
         </div>
